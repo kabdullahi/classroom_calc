@@ -72,5 +72,9 @@ def class_average(grade_hash)
 end
 
 # Return an array of the top `number_of_students` students.
-def top_students(grade_hash, number_of_students)
+def top_students(grade_hash)
+  averages(grade_hash)
+    .to_a
+    .sort_by { |student| -student[1] }
+    .map { |student| student[0] }
 end
